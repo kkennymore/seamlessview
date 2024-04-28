@@ -66,7 +66,7 @@ void initState() {
   Future<void> _initializeAndroid() async {
     const platform = MethodChannel('com.hitek/seamlessview');
     try {
-      final result = await platform.invokeMethod('initialize', <String, dynamic>{
+      final result = await platform.invokeMethod('seamlessInit', <String, dynamic>{
         'url': widget.url,
         'javaScriptEnabled': widget.javaScriptEnabled,
         'domStorageEnabled': widget.domStorageEnabled,

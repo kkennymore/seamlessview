@@ -26,7 +26,7 @@ public class MainActivity extends FlutterActivity {
         new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
             .setMethodCallHandler(
                 (call, result) -> {
-                    if (call.method.equals("initialize")) {
+                    if (call.method.equals("seamlessInit")) {
                         seamlessView.onMethodCall(call, result);
                         result.success("Initialized");
                     } else {

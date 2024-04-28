@@ -30,9 +30,14 @@ public class SeamlessView extends WebView implements MethodCallHandler {
     @Override
     public void onMethodCall(MethodCall call, Result result) {
         switch (call.method) {
-            case "setUrl":
+            case "seamlessInit":
                 String url = call.argument("url");
                 loadUrl(url);
+                result.success(true);
+                break;
+            case "setUrl":
+                String url2 = call.argument("url");
+                loadUrl(url2);
                 result.success(true);
                 break;
             case "setJavaScriptEnabled":
