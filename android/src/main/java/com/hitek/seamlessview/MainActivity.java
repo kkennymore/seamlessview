@@ -25,7 +25,14 @@ public class MainActivity extends FlutterActivity {
         super.configureFlutterEngine(flutterEngine);
         new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
             .setMethodCallHandler(
-                (call, result) -> seamlessView.onMethodCall(call, result)
+                (call, result) -> {
+                    if (call.method.equals("initialize")) {
+                        seamlessView.onMethodCall(call, result);
+                        result.success("Initialized");
+                    } else {
+                        result.notImplemented();
+                    }
+                }
             );
     }
 }
